@@ -1,0 +1,833 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    border: none;
+    box-sizing: border-box; 
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+
+}
+
+:root {
+    --cor-padrao-fonte: #fff;
+    --cor-link-topo: #fff;
+    --cor-font-preto: #000;
+    --cor-botao-pesquisa-top: #ff5361;
+    --cor-hover-btn: #96045e;
+    --cor-fonte-sub-titulo: #333;
+    --cor-hover-ganhar-dinheiro: #05af2a;
+    --cor-topo-celular: #000;
+    --borda-busca-radape-celular: #ddd;
+    --border-lista-imoveis: #ccc;
+    --cor-info-imovel: #555;
+    --borda-lateral-direita: #999;
+
+}
+
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 7%;
+}
+
+
+.logo {
+    width: 140px;
+    cursor: pointer;
+}
+
+.container {
+    padding-left:15vw;
+    padding-right:15vw;
+}
+
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid rgba(104, 99, 99, 0.25);
+    padding: 1.6vh;
+}
+
+.cabecalho__busca {
+    display: flex;
+    position: relative;
+    width: 400px;
+    left: 40px;
+    gap: 10px;
+    border: 1px solid rgb(209, 209, 209);
+    border-radius: 25px;
+    justify-content: center;
+    padding: 10px 1px 10px 20px;
+}
+
+.cabecalho__busca button {
+    background-color: rgb(255, 255, 255);
+    padding-right: 1px;
+    color: rgb(0, 0, 0);
+    font-weight: 500;
+}
+
+.cabecalho__busca .cabecalho__busca__hospedes {
+    color: rgba(112, 97, 97, 0.733);
+}
+
+.cabecalho__busca p {
+    display: flex;
+    justify-content: center;
+    padding: 2px 2px 2px 2px;
+    font-size: 19px;
+    color: rgb(151, 151, 151);
+}
+
+.busca__div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 30px;
+    height: 30px;
+    border-radius: 25px;
+    background-color: #ff385c;
+}
+
+.busca__div span {
+    font-size: 16px;
+    color: aliceblue;
+}
+
+.cabecalho__publicacao {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.cabecalho__publicacao button {
+    background-color: rgb(255, 255, 255);
+    position: relative;
+    right: 4vh;
+    color: rgb(48, 45, 45);
+    font-weight: 500;
+    font-size: 16px;
+}
+
+.cabecalho__publicacao span {
+    color: rgb(48, 45, 45);
+    font-size: 19px;
+    position: relative;
+    right: 5px;
+}
+
+.menu-container {
+  position: relative;
+}
+
+/* restante do seu CSS */
+
+
+.cabecalho__usuario {
+    display: flex;
+    gap: 5px;
+
+    border: 1px solid rgba(48, 45, 45, 0.185);
+    border-radius: 25px;
+    color: rgb(48, 45, 45);;
+    padding: 5px 10px;
+
+    cursor: pointer;
+}
+
+.cabecalho__usuario:hover {
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.18);
+}
+
+.dropdown-menu {
+    display: none;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    background-color: #ffffff; /* fundo branco */
+    border-radius: 12px; /* bordas arredondadas */
+    box-shadow: 0px 16px 32px rgba(0, 0, 0, 0.08); /* sombra ao redor do menu */
+    padding: 10px; /* algum espaço interno */
+    position: absolute;
+    top: 100%;  /* isso vai posicionar o menu suspenso logo abaixo do .menu-container */
+    left: 30;  /* isso vai alinhar o menu suspenso à esquerda do .menu-container */
+    
+    right: 0; /* alinhar à direita */
+    top: 120%; /* colocar logo abaixo do elemento pai */
+    width: 250px; /* largura fixa */
+    z-index: 1000; /* para garantir que o menu suspenso apareça acima de outros elementos */
+  }
+  
+  .dropdown-menu.active {
+    display: block;
+    opacity: 1;
+  }
+  
+  .dropdown-menu a {
+    color: #484848; /* texto preto */
+    text-decoration: none; /* sem sublinhado */
+    display: block; /* para que o link ocupe toda a linha */
+    padding: 8px 0; /* algum espaço vertical entre os links */
+    font-size: 14px; /* tamanho da fonte */
+  }
+  
+  .dropdown-menu a:hover {
+    background-color: #f7f7f7; /* fundo cinza claro quando o mouse passa por cima */
+  }
+  
+  .dropdown-menu a:first-child {
+    font-weight:bold;
+}
+
+.linha-hr-drop {
+    position: absolute;
+    width: calc(100% + 0.45px); /* Ajuste para cobrir o espaço à esquerda do menu dropdown */
+    left: -0.4px; /* Deslocamento à esquerda para compensar a expansão */
+    height: 1px;
+    background-color: var(--border-lista-imoveis);
+}
+  
+  
+
+img{
+    max-width: 100%;
+    height: auto;
+}
+
+/* iniciando css exclusivo do imoveis */
+
+.imoveis-detalhes{
+    padding: 0 12%;
+}
+.imovel-titulo{
+    margin-top:50px!important;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.imovel-titulo h1{
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.6rem;
+    margin-bottom: -25px;
+}
+.imovel-titulo .linha{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    margin: 10px 0;
+}
+.imovel-titulo span{
+    margin: 0 20px;
+}
+.imovel-titulo ion-icon{
+    color: var(--cor-botao-pesquisa-top);
+    font-size: 14px;
+}
+
+.vermelho {
+    stroke: red;
+}
+
+
+/*Compartilhar e Salvar*/
+
+.box-title--btns {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: -25px;
+}
+
+.box-title--btn {
+    display: flex;
+    align-items: center;
+    margin-left: 30px;
+}
+
+.box-title--btn a {
+    margin-left: 6px;
+    font-size: 1rem;
+    color: #222;
+    text-decoration: underline;
+}
+
+
+/*Fim Compartilhar e Salvar*/
+
+.galeria{
+    display: grid;
+    grid-template-columns: 180px 180px;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    margin-top: 30px;
+    gap: 10px;
+}
+.galeria div{
+    width: 100%;
+    height: 100%;
+}
+
+.galeria img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.galeria .galeria-img-1{
+    grid-row: 1/3;
+    grid-column: 1/3;   
+}
+.galeria .galeria-img-1 img{
+    border-top-left-radius: 15px;
+    border-bottom-left-radius: 15px;
+}
+
+.galeria .galeria-img-3 img{
+    border-top-right-radius: 15px;
+}
+
+.galeria .galeria-img-5 img{
+    border-bottom-right-radius: 15px;
+}
+
+.modal {
+    /* Posicione o modal no centro da tela */
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    /* Adicione um fundo escurecido */
+    background: rgba(0, 0, 0, 0.5);
+    padding: 20px;
+    border-radius: 10px;
+    margin-right: 60px;
+
+    /* Centralize o conteúdo do modal */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal img {
+    /* Defina uma largura fixa para a imagem */
+    width: 650px;
+    /* Deixe a altura ser ajustada automaticamente para manter a proporção da imagem */
+    height: 450px;
+    margin-bottom: 20px;
+}
+
+.modal button {
+    /* Estilize os botões */
+    background: var(--cor-botao-pesquisa-top);
+    color: var(--cor-padrao-fonte);
+    border: none;
+    padding: 10px 20px;
+    margin: 0 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.list-container{
+    margin-top: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.coluna-esquerda {
+    flex-basis: 70%;
+    padding-right: 20px; /* Adicione algum espaçamento à direita para separar do formulário */
+}
+
+.coluna-esquerda h1 {
+    color: var(--cor-fonte-sub-titulo);
+    font-weight: 600;
+    margin-bottom: 30px;
+}
+
+.pequenos-detalhes h2{
+    font-weight: 600;
+    margin-top: 31px;
+    font-size: 25px;
+
+}
+
+.pequenos-detalhes h4{
+    text-align: right;
+    font-size: 22px;
+}
+
+/*Icones e css de detalhes breves anfitrião e casa*/
+.information_left{
+    display: flex;
+    align-items: center;
+    column-gap: 6px;
+}
+.information_left div{
+    display: flex;
+    align-items: center;
+    column-gap: 6px;
+    font-size: 16px;
+    line-height: 20px;
+    letter-spacing: -0,3px;
+}
+.information_left div:not(:first-child)::before{
+    content: "";
+    width: 3px;
+    height: 3px;
+    background:#222;
+    border-radius: 100%;
+}
+
+.information_left div:has(strong,a){
+    font-weight: 500;
+}
+/* F*/
+
+.linha-hr{
+    width: 100%;
+    max-width: 800px;
+    border: 0;
+    height: 1px;
+    background-color: var(--border-lista-imoveis);
+    margin: 20px 0 50px;
+}
+
+.locatario-miguel {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.locatario-miguel img {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 50%;
+    margin-right: 15px;
+}
+
+.locatario-miguel div {
+    flex: 1;
+}
+
+.locatario-miguel h2 {
+    font-weight: 580;
+    font-size: medium;
+    margin-bottom: 5px;
+}
+
+.locatario-miguel p {
+    margin-bottom: 5px;
+    color:#555
+}
+
+.locatario-miguel ion-icon {
+    color: var(--cor-botao-pesquisa-top);
+}
+
+.tempo-estadia-miguel {
+    color: #555;
+    font-size: 0.9em;
+}
+
+.lista-detalhes{
+    list-style: none;
+    margin: 50px 0;
+}
+
+.lista-detalhes li{
+    position: relative;
+    margin-left: 50px;
+    font-size: 20px;
+    font-weight: 500;
+    margin-bottom: 20px;
+    color:var(--cor-info-imovel)
+}
+
+.lista-detalhes h5{
+    font-family: 'Roboto';
+    font-weight: bold;
+    color: #000;
+}
+
+.lista-detalhes span{
+    font-size: 16px;
+    font-weight: 400;
+    display: block;
+}
+
+.lista-detalhes li ion-icon{
+    position: absolute;
+    top: 5px;
+    left: -40px;
+}
+
+.imovel-desc {
+    font-size: 16px; /* Tamanho da fonte reduzido */
+    line-height: 1.5; /* Espaçamento entre linhas aumentado para melhor legibilidade */
+    margin-bottom: 20px;
+    color: #666; /* Cor do texto mais clara */
+    max-width: 600px;
+    font-family: 'Roboto';
+}
+
+.imovel-desc h2, .imovel-desc h3 {
+    font-size: 20px; /* Tamanho da fonte dos títulos aumentado */
+    margin-bottom: 10px;
+    color: #333; /* Cor do texto mais escura para os títulos */
+}
+
+.imovel-desc ul {
+    margin-bottom: 10px;
+}
+
+.imovel-desc p {
+    margin-bottom: 10px;
+    font-size: 14px; /* Tamanho da fonte dos parágrafos reduzido */
+}
+
+.about {
+    margin: 40px 0;
+    color: #666;
+}
+.about h2{
+    color: var(--cor-font-preto);
+}
+
+.about li {
+    position: relative;
+    list-style: none;
+    margin-left: 50px;
+    font-size: 20px;
+    font-weight: 500;
+    margin-bottom: 20px;
+    color: var(--cor-info-imovel);
+}
+
+.about span {
+    font-size: 16px;
+    font-weight: 400;
+    display: block;
+    margin-top: 5px; /* Adiciona um espaço entre o ícone e o texto */
+}
+
+.about img {
+    width: 24px; /* Ajusta o tamanho dos ícones */
+    height: 24px;
+    margin-right: 10px; /* Adiciona um espaço entre o ícone e o texto */
+    color: #666;
+}
+
+.coluna-direita {
+    width: 50%; /* Ou qualquer largura desejada para a coluna direita */
+    float: right; /* Posiciona a coluna à direita */
+    flex-basis: 25%;
+}
+
+.aluguel-form-container {
+    width: 100% !important; 
+    position: sticky !important;
+    top: var(--navigation-bar-offset, 80px) !important;
+    z-index: 1 !important;
+    display: inline-block !important;
+    padding-right: 1px !important;
+    padding: 20px;
+    background-color: transparent;
+    border: 1px solid transparent;
+    border-radius: 8px;
+    margin-top: 20px; 
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+.checa-form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    background-color: var(--cor-link-topo);
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.3);
+    border-radius: 8px;
+
+}
+
+.checa-form label {
+    display: block;
+    margin-bottom: 8px; /* Cor do texto dos rótulos */
+    font-weight: bold;
+}
+
+
+.checa-form div{
+    padding: 20px;
+    width: 100%;
+}
+
+.checa-form input,
+.checa-form select {
+    width: 100%;
+    margin-bottom: 15px;
+    padding: 10px;
+    border: 1px solid var(--border-lista-imoveis);
+    border-radius: 4px;
+    outline: none;
+}
+
+.checa-form button{
+    width: 100%;
+    font-size: 16px;
+    background-color: var(--cor-botao-pesquisa-top);
+    border: 0;
+    outline: none;
+    border-radius: 8px;
+    color: var(--cor-padrao-fonte);
+    padding: 18px;
+    cursor: pointer;
+}
+
+.checa-form button:hover {
+    background-color: var(--cor-hover-ganhar-dinheiro);
+}
+
+.campo-pessoas{
+    flex: 1;
+}
+
+.mapa {
+    margin: 50px 0;
+}
+
+.mapa iframe {
+    width: 100%;
+    margin-bottom: 30px;
+}
+
+.mapa h3 {
+    font-size: 24px; /* Reduzindo o tamanho da fonte do título */
+    font-weight: bold; /* Mudando o peso da fonte para negrito */
+    margin-bottom: 20px; /* Reduzindo o espaçamento inferior */
+    color: #333; /* Definindo a cor do título */
+}
+
+.mapa b {
+    display: block;
+    font-size: 18px; /* Ajustando o tamanho da fonte */
+    margin-bottom: 10px; /* Reduzindo o espaçamento inferior */
+}
+
+.mapa p {
+    font-size: 16px; /* Ajustando o tamanho da fonte */
+    line-height: 1.5; /* Aumentando o espaçamento entre linhas */
+    margin-bottom: 10px; /* Reduzindo o espaçamento inferior */
+    color: #666; /* Definindo a cor do texto */
+}
+
+.container__avaliacoes {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    border-top: 1px solid rgba(0, 0, 0, 0.24);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.24);
+    padding: 2rem 0;
+    margin-bottom: 40px;
+}
+
+.cabecalho__avaliacoes ion-icon {
+    font-size: 1.8em; /* Tamanho da fonte equivalente a um h1 */
+    color: var(--cor-botao-pesquisa-top); /* Cor do ícone */
+    margin: 10px 1px; /* Margem */
+    display: flex-end; /* Alinhamento do ícone */
+    margin-right: 10px;
+}
+
+.cabecalho__avaliacoes {
+    display: flex;
+}
+
+.lista__avaliacoes {
+    display: flex;
+    gap: 20px;
+}
+
+.item__avaliacao {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    border-left: 1px solid var(--cor-fonte-sub-titulo);
+    padding: 0 1.5rem;
+    margin-bottom: 10px;
+}
+
+.primeiro__item{
+    border: none;
+    padding: 0 1.5rem 0 0;
+}
+
+.comentarios {
+    margin-top: 50px;
+}
+
+.locatario ion-icon {
+    color: var(--cor-botao-pesquisa-top);
+}
+
+.locatario {
+    display: flex; /* Adiciona flexbox para os elementos ficarem lado a lado */
+    align-items: center; /* Centraliza verticalmente */
+    margin-bottom: 40px; /* Espaçamento entre os comentários */
+}
+
+.locatario img {
+    width: 80px;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 50%;
+    margin-right: 15px; /* Espaçamento menor entre a imagem e o texto */
+}
+
+.locatario h2 {
+    font-weight: 500;
+    margin-bottom: 10px;
+}
+
+.avaliacao {
+    margin-bottom: 5px;
+}
+
+.avaliacao span {
+    display: inline-block;
+    margin-right: 5px;
+}
+
+.tempo-estadia {
+    color: #555;
+}
+
+.comentario {
+    font-style: italic;
+    color: #333;
+    line-height: 1.4;
+}
+
+.rodape {
+    margin: 80px 0 10px;
+    text-align: center;
+}
+
+.rodape a {
+    text-decoration: none;
+    color: var(--cor-botao-pesquisa-top);
+    font-size: 22px;
+    margin: 0 10px;
+
+}
+
+.rodape hr {
+    background-color: var(--cor-botao-pesquisa-top);
+    height: 1px;
+    width: 100%;
+    border: 0;
+    margin: 20px 0;
+}
+
+.rodape p {
+    padding-bottom: 15px;
+}
+
+/* adicionando CSS de parte nao definida */
+
+#lightbox {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    flex-direction: column;
+    z-index: 9999; /* Ajuste a z-index conforme necessário */
+}
+
+
+#lightbox img {
+    max-width: 80%;
+    max-height: 60vh;
+    box-shadow: 0 0 25px rgba(0, 0, 0, 0.8);
+  border-radius: 10px;
+}
+
+#close-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 24px;
+    color: #fff;
+    cursor: pointer;
+    z-index: 2;
+}
+
+#prev-btn,
+#next-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 20px;
+    color: #fff;
+    background-color: var(--cor-botao-pesquisa-top);
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#prev-btn {
+    left: 10px;
+}
+
+#next-btn {
+    right: 10px;
+}
+
+#prev-btn:hover,
+#next-btn:hover {
+    background-color: #fff;
+    color: #000;
+}
+
+.thumbnail-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.thumbnail {
+    max-width: 50px;
+    width: 100px;
+    cursor: pointer;
+    margin-top: 40px;
+    margin-left: 5px;
+    margin-right: 5px;
+    border: 2px solid var(--cor-botao-pesquisa-top);
+    transition: opacity 0.3s;
+}
+
+.thumbnail:hover,
+.thumbnail.active-thumbnail {
+    opacity: 0.7;
+}
+
+
+
+
+
